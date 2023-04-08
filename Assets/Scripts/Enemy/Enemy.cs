@@ -9,25 +9,10 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected Text enemyHealthText;
     [SerializeField] protected EnemyStats enemyStats;
 
-    protected float b_enemyMaxHealth;
     protected int b_enemyGold;
     protected bool isAttackCooldown = false;
 
-    protected float enemyHealth
-    {
-        get { return b_enemyMaxHealth; }
-        set
-        {
-            if (value < 0)
-            {
-                Debug.Log("Enemy Max Health cannot be negative or 0 value");
-            }
-            else
-            {
-                b_enemyMaxHealth = value;
-            }
-        }
-    }
+    protected float enemyHealth { get; set; }
     protected int enemyGold
     {
         get { return b_enemyGold; }

@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public int playerGold;
 
     [SerializeField] private Text playerGoldText;
+    [SerializeField] private Animator hitAnimation;
 
     // Start is called before the first frame update
     void Start()
@@ -34,9 +35,14 @@ public class PlayerController : MonoBehaviour
         gameObject.GetComponent<Animator>().Play("PlayerAttack");
     }
 
+    public void PlayHitAnimation()
+    {
+        hitAnimation.Play("hitAnimation");
+    }
+
     public void UpdatePlayerGold()
     {
-        playerGoldText.text = "Gold: " + playerGold;
+        playerGoldText.text = "" + playerGold;
     }
 
 }
