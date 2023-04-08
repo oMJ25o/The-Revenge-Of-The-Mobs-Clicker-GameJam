@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: SlimeData
   m_EditorClassIdentifier: 
   enemyHealth: 10
+  enemyGold: 1

@@ -8,6 +8,7 @@ public class Slime : Enemy
     void Start()
     {
         enemyHealth = enemyStats.enemyHealth;
+        enemyGold = enemyStats.enemyGold;
         SetUpEnemy();
     }
 
@@ -15,14 +16,6 @@ public class Slime : Enemy
     void Update()
     {
 
-    }
-
-    protected override void OnMouseDown()
-    {
-        enemyHealth -= 1;
-        enemyHealthBar.transform.localScale = new Vector3(enemyHealth / 10, 1, 1);
-        enemyHealthText.text = " " + enemyHealth + " / " + enemyStats.enemyHealth;
-        playerController.PlayAttackAnimation();
     }
 
 }

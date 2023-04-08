@@ -6,4 +6,5 @@ using UnityEngine;
 public class EnemyStats : ScriptableObject
 {
     public float enemyHealth;
+    public int enemyGold;
 }
