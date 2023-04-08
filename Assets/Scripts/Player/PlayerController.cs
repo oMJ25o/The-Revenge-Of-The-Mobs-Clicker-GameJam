@@ -5,15 +5,22 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private Sprite[] backgroundImages;
+    [SerializeField] private Image backgroundImageUI;
+
     public int attackDamage;
     public float attackSpeed;
     public float goldRate;
     public int playerGold;
 
     [SerializeField] private Text playerGoldText;
+    [SerializeField] private Text gameLevelText;
     [SerializeField] private Animator hitAnimation;
     [SerializeField] private AudioClip hitAudio;
+    [SerializeField] private SpawnManager spawnManager;
+
     [HideInInspector] public bool isAttackCooldown = false;
+    [HideInInspector] public int adventurerKilled = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +54,22 @@ public class PlayerController : MonoBehaviour
     public void UpdatePlayerGold()
     {
         playerGoldText.text = "" + playerGold;
+    }
+
+    public void CheckToChangeTime()
+    {
+        if (playerGold >= (15 * spawnManager.gameLevel) && !spawnManager.dayTime)
+        {
+            spawnManager.dayTime = true;
+            backgroundImageUI.sprite = backgroundImages[spawnManager.gameLevel];
+        }
+        else if (adventurerKilled >= (5 + spawnManager.gameLevel))
+        {
+            spawnManager.gameLevel++;
+            gameLevelText.text = "Game Level: " + spawnManager.gameLevel;
+            spawnManager.dayTime = false;
+            backgroundImageUI.sprite = backgroundImages[spawnManager.gameLevel];
+        }
     }
 
 

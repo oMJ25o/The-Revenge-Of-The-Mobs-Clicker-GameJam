@@ -1498,11 +1498,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22810360b25d22b4e908b4a655a3505d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
+  enemyMobPrefabs:
   - {fileID: 8101405571458571474, guid: ee5ab0585d809364b93f1566a7492d22, type: 3}
-  - {fileID: 1546795476544806383, guid: 47e9fcc870908c44f8e28cfdd6b8be1e, type: 3}
+  enemyAdventurerPrefabs:
   - {fileID: 7292949341488233238, guid: 3ec59608481541f46a1d790bcaf4779b, type: 3}
+  - {fileID: 1546795476544806383, guid: 47e9fcc870908c44f8e28cfdd6b8be1e, type: 3}
+  dayTime: 0
   enemyIndex: 0
+  gameLevel: 1
 --- !u!4 &580654879
 Transform:
   m_ObjectHideFlags: 0
@@ -3146,14 +3149,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32166e6edf3ae3244b018fa0829128ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundImages:
+  - {fileID: 21300000, guid: 48b8352526ee05b4cabf9407d19cf750, type: 3}
+  - {fileID: 21300000, guid: 00c28166aa96c2b4289dec4821432716, type: 3}
+  - {fileID: 21300000, guid: 5c6f70cc6a3f3e4409bdff2c385e2108, type: 3}
+  backgroundImageUI: {fileID: 1370331316}
   attackDamage: 1
   attackSpeed: 1
   goldRate: 1
   playerGold: 0
   playerGoldText: {fileID: 1381586332}
+  gameLevelText: {fileID: 0}
   hitAnimation: {fileID: 348849623}
   hitAudio: {fileID: 8300000, guid: e74e1d03cd5778349947d4efe9083c87, type: 3}
+  spawnManager: {fileID: 580654878}
   isAttackCooldown: 0
+  adventurerKilled: 0
 --- !u!95 &1298635933
 Animator:
   serializedVersion: 5

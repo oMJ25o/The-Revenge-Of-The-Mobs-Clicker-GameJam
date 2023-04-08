@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] enemyPrefabs;
+    [SerializeField] GameObject[] enemyMobPrefabs;
+    [SerializeField] GameObject[] enemyAdventurerPrefabs;
+    public bool dayTime = false;
 
     [HideInInspector] public int enemyIndex;
+    [HideInInspector] public int gameLevel = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +25,16 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        Instantiate(enemyPrefabs[enemyIndex], enemyPrefabs[enemyIndex].transform.position, enemyPrefabs[enemyIndex].transform.rotation);
+        enemyIndex = gameLevel - 1;
+        if (!dayTime)
+        {
+            Instantiate(enemyMobPrefabs[enemyIndex], enemyMobPrefabs[enemyIndex].transform.position, enemyMobPrefabs[enemyIndex].transform.rotation);
+        }
+        else if (dayTime)
+        {
+            int randomAdventurer = Random.Range(0, enemyAdventurerPrefabs.Length);
+            Instantiate(enemyAdventurerPrefabs[randomAdventurer], enemyAdventurerPrefabs[randomAdventurer].transform.position, enemyAdventurerPrefabs[randomAdventurer].transform.rotation);
+        }
     }
 
 }

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Spearman
   m_EditorClassIdentifier: 
   enemyHealth: 10
-  enemyGold: 2
+  enemyGold: 3

@@ -61,24 +61,6 @@ public abstract class Enemy : MonoBehaviour
         enemyHealthText.text = " " + enemyHealth + " / " + enemyStats.enemyHealth;
     }
 
-    protected virtual void OnMouseDown()
-    {
-        if (!playerController.isAttackCooldown)
-        {
-            enemyHealth -= playerController.attackDamage;
-            UpdateHealthUI();
-            playerController.PlayAttackAnimation();
-
-            if (enemyHealth <= 0)
-            {
-                playerController.playerGold += enemyGold;
-                playerController.UpdatePlayerGold();
-                spawnManager.SpawnEnemy();
-                Destroy(gameObject);
-            }
-
-        }
-
-    }
+    protected abstract void OnMouseDown();
 
 }

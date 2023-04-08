@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slime : Enemy
+public class Spearman : Enemy
 {
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,7 @@ public class Slime : Enemy
             {
                 playerController.playerGold += enemyGold;
                 playerController.UpdatePlayerGold();
+                playerController.adventurerKilled++;
                 playerController.CheckToChangeTime();
                 spawnManager.SpawnEnemy();
                 Destroy(gameObject);
