@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private int attackDamageUpgradeCost;
     [SerializeField] private int attackSpeedUpgradeCost;
     [SerializeField] private int goldRateUpgradeCost;
+
 
     // Start is called before the first frame update
     void Start()
