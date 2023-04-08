@@ -26,7 +26,7 @@ public class Slime : Enemy
 
             if (enemyHealth <= 0)
             {
-                playerController.playerGold += enemyGold;
+                playerController.playerGold += (enemyGold * playerController.goldRate);
                 playerController.UpdatePlayerGold();
                 playerController.CheckToChangeTime();
                 spawnManager.SpawnEnemy();

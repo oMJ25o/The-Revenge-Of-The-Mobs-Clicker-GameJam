@@ -26,7 +26,7 @@ public class Spearman : Enemy
 
             if (enemyHealth <= 0)
             {
-                playerController.playerGold += enemyGold;
+                playerController.playerGold += (enemyGold * playerController.goldRate);
                 playerController.UpdatePlayerGold();
                 playerController.adventurerKilled++;
                 playerController.CheckToChangeTime();

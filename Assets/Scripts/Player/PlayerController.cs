@@ -7,11 +7,14 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Sprite[] backgroundImages;
     [SerializeField] private Image backgroundImageUI;
+    [SerializeField] private Text attackDamageStatsText;
+    [SerializeField] private Text attackSpeedStatsText;
+    [SerializeField] private Text goldRateStatsText;
 
     public int attackDamage;
     public float attackSpeed;
     public float goldRate;
-    public int playerGold;
+    public float playerGold;
     public int attackUpgraded;
     public int speedUpgraded;
     public int goldRateUpgraded;
@@ -29,6 +32,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         UpdatePlayerGold();
+        UpdatePlayerStats();
     }
 
     // Update is called once per frame
@@ -56,12 +60,19 @@ public class PlayerController : MonoBehaviour
 
     public void UpdatePlayerGold()
     {
-        playerGoldText.text = "" + playerGold;
+        playerGoldText.text = string.Format("{0:0}", playerGold);
+    }
+
+    public void UpdatePlayerStats()
+    {
+        attackDamageStatsText.text = string.Format("{0:0.0###}", attackDamage);
+        attackSpeedStatsText.text = string.Format("{0:0.0###}", attackSpeed);
+        goldRateStatsText.text = "" + (goldRate * 100) + "%";
     }
 
     public void CheckToChangeTime()
     {
-        if (playerGold >= (20 * spawnManager.gameLevel) && !spawnManager.dayTime)
+        if (playerGold >= (150 * spawnManager.gameLevel) && !spawnManager.dayTime)
         {
             spawnManager.dayTime = true;
             backgroundImageUI.sprite = backgroundImages[spawnManager.gameLevel];
