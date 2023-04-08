@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] protected GameObject enemyHealthBar;
+    [SerializeField] protected Text enemyHealthText;
     [SerializeField] protected EnemyStats enemyStats;
 
     protected float b_enemyMaxHealth;
 
-    public float enemyHealth
+    protected float enemyHealth
     {
         get { return b_enemyMaxHealth; }
         set
         {
-            if (value <= 0)
+            if (value < 0)
             {
                 Debug.Log("Enemy Max Health cannot be negative or 0 value");
             }
@@ -24,6 +26,7 @@ public abstract class Enemy : MonoBehaviour
             }
         }
     }
+    protected PlayerController playerController { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,11 @@ public abstract class Enemy : MonoBehaviour
     void Update()
     {
 
+    }
+
+    protected virtual void SetUpEnemy()
+    {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     protected abstract void OnMouseDown();

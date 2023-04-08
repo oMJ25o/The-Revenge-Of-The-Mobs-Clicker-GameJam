@@ -8,6 +8,7 @@ public class Slime : Enemy
     void Start()
     {
         enemyHealth = enemyStats.enemyHealth;
+        SetUpEnemy();
     }
 
     // Update is called once per frame
@@ -20,7 +21,8 @@ public class Slime : Enemy
     {
         enemyHealth -= 1;
         enemyHealthBar.transform.localScale = new Vector3(enemyHealth / 10, 1, 1);
-        Debug.Log(enemyHealth);
+        enemyHealthText.text = " " + enemyHealth + " / " + enemyStats.enemyHealth;
+        playerController.PlayAttackAnimation();
     }
 
 }
