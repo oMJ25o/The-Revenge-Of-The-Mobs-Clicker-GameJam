@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Text playerGoldText;
     [SerializeField] private Animator hitAnimation;
-
+    [SerializeField] private AudioClip hitAudio;
     [HideInInspector] public bool isAttackCooldown = false;
 
     // Start is called before the first frame update
@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     public void PlayAttackAnimation()
     {
         gameObject.GetComponent<Animator>().Play("PlayerAttack");
+        gameObject.GetComponent<AudioSource>().PlayOneShot(hitAudio);
         StartCoroutine("AttackCooldown");
     }
 

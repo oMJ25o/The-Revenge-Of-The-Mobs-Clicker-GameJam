@@ -57,7 +57,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void UpdateHealthUI()
     {
-        enemyHealthBar.transform.localScale = new Vector3(enemyHealth / 10, 1, 1);
+        enemyHealthBar.transform.localScale = new Vector3(enemyHealth / enemyStats.enemyHealth, 1, 1);
         enemyHealthText.text = " " + enemyHealth + " / " + enemyStats.enemyHealth;
     }
 
