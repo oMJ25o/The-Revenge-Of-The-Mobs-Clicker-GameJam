@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public abstract class Enemy : MonoBehaviour
 {
-    [SerializeField] protected GameObject enemyHealthBar;
-    [SerializeField] protected Text enemyHealthText;
     [SerializeField] protected EnemyStats enemyStats;
 
+    protected GameObject enemyHealthBar;
+    protected Text enemyHealthText;
+
     protected int b_enemyGold;
-    protected bool isAttackCooldown = false;
 
     protected float enemyHealth { get; set; }
     protected int enemyGold
@@ -29,6 +29,7 @@ public abstract class Enemy : MonoBehaviour
         }
     }
     protected PlayerController playerController { get; private set; }
+    protected SpawnManager spawnManager { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -45,8 +46,13 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void SetUpEnemy()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        enemyHealthBar = GameObject.Find("HealthBar");
+        enemyHealthText = GameObject.Find("HealthText").GetComponent<Text>();
         enemyHealth = enemyStats.enemyHealth;
         enemyGold = enemyStats.enemyGold;
+
+        UpdateHealthUI();
     }
 
     protected virtual void UpdateHealthUI()
@@ -57,28 +63,22 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void OnMouseDown()
     {
-        if (!isAttackCooldown)
+        if (!playerController.isAttackCooldown)
         {
             enemyHealth -= playerController.attackDamage;
             UpdateHealthUI();
             playerController.PlayAttackAnimation();
-            StartCoroutine("AttackCooldown");
-        }
-    }
 
-    IEnumerator AttackCooldown()
-    {
-        isAttackCooldown = true;
+            if (enemyHealth <= 0)
+            {
+                playerController.playerGold += enemyGold;
+                playerController.UpdatePlayerGold();
+                spawnManager.SpawnEnemy();
+                Destroy(gameObject);
+            }
 
-        if (enemyHealth == 0)
-        {
-            playerController.playerGold += enemyGold;
-            playerController.UpdatePlayerGold();
         }
 
-        yield return new WaitForSeconds(1 / playerController.attackSpeed);
-        isAttackCooldown = false;
     }
-
 
 }

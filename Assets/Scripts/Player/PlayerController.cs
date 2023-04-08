@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Text playerGoldText;
     [SerializeField] private Animator hitAnimation;
 
+    [HideInInspector] public bool isAttackCooldown = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,7 @@ public class PlayerController : MonoBehaviour
     public void PlayAttackAnimation()
     {
         gameObject.GetComponent<Animator>().Play("PlayerAttack");
+        StartCoroutine("AttackCooldown");
     }
 
     public void PlayHitAnimation()
@@ -44,5 +47,14 @@ public class PlayerController : MonoBehaviour
     {
         playerGoldText.text = "" + playerGold;
     }
+
+
+    IEnumerator AttackCooldown()
+    {
+        isAttackCooldown = true;
+        yield return new WaitForSeconds(1 / attackSpeed);
+        isAttackCooldown = false;
+    }
+
 
 }

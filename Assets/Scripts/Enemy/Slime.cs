@@ -7,8 +7,6 @@ public class Slime : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        enemyHealth = enemyStats.enemyHealth;
-        enemyGold = enemyStats.enemyGold;
         SetUpEnemy();
     }
 
