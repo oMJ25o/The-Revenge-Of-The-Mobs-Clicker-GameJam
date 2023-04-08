@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
             spawnManager.dayTime = true;
             backgroundImageUI.sprite = backgroundImages[spawnManager.gameLevel];
         }
-        else if (adventurerKilled >= (5 + spawnManager.gameLevel))
+        else if (adventurerKilled >= (10 + spawnManager.gameLevel))
         {
             spawnManager.gameLevel++;
             gameLevelText.text = "Game Level: " + spawnManager.gameLevel;
