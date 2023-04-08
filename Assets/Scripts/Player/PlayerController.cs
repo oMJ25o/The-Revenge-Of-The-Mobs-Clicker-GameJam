@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     public float attackSpeed;
     public float goldRate;
     public int playerGold;
+    public int attackUpgraded;
+    public int speedUpgraded;
+    public int goldRateUpgraded;
 
     [SerializeField] private Text playerGoldText;
     [SerializeField] private Text gameLevelText;
@@ -58,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
     public void CheckToChangeTime()
     {
-        if (playerGold >= (15 * spawnManager.gameLevel) && !spawnManager.dayTime)
+        if (playerGold >= (20 * spawnManager.gameLevel) && !spawnManager.dayTime)
         {
             spawnManager.dayTime = true;
             backgroundImageUI.sprite = backgroundImages[spawnManager.gameLevel];
