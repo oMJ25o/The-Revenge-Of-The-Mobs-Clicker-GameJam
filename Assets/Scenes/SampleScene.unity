@@ -3634,16 +3634,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32166e6edf3ae3244b018fa0829128ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundImages:
+  nightBackgroundImages:
   - {fileID: 21300000, guid: 48b8352526ee05b4cabf9407d19cf750, type: 3}
-  - {fileID: 21300000, guid: 00c28166aa96c2b4289dec4821432716, type: 3}
   - {fileID: 21300000, guid: 5c6f70cc6a3f3e4409bdff2c385e2108, type: 3}
-  - {fileID: 21300000, guid: 0a1dce06add28a44b96ec685b0289cbd, type: 3}
+  - {fileID: 21300000, guid: 9b6ca9f922db3f047807070c11aabe42, type: 3}
   - {fileID: 21300000, guid: 25bd9f4de43e9c647b1a0e34f9bd15fc, type: 3}
-  - {fileID: 21300000, guid: 3e29d23444ba0f9409ee709b026ca711, type: 3}
   - {fileID: 21300000, guid: abb07b3a07a5ae545a5a892ea2d41de8, type: 3}
-  - {fileID: 21300000, guid: 6024e675d19e957498208879be39179a, type: 3}
   - {fileID: 21300000, guid: c1baf7bb64dd196498b107ca175c7c51, type: 3}
+  dayBackgroundImages:
+  - {fileID: 21300000, guid: 00c28166aa96c2b4289dec4821432716, type: 3}
+  - {fileID: 21300000, guid: 0a1dce06add28a44b96ec685b0289cbd, type: 3}
+  - {fileID: 21300000, guid: eb656c8b239eff14faa4030b2c580a3c, type: 3}
+  - {fileID: 21300000, guid: 3e29d23444ba0f9409ee709b026ca711, type: 3}
+  - {fileID: 21300000, guid: 6024e675d19e957498208879be39179a, type: 3}
   - {fileID: 21300000, guid: 9812f44bd8d374e4eb6b70e28303393a, type: 3}
   backgroundImageUI: {fileID: 1370331316}
   attackDamageStatsText: {fileID: 1039966487}
@@ -3663,6 +3666,7 @@ MonoBehaviour:
   spawnManager: {fileID: 580654878}
   isAttackCooldown: 0
   adventurerKilled: 0
+  mobsKilled: 0
 --- !u!95 &1298635933
 Animator:
   serializedVersion: 5

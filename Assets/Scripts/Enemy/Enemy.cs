@@ -10,10 +10,11 @@ public abstract class Enemy : MonoBehaviour
     protected GameObject enemyHealthBar;
     protected Text enemyHealthText;
 
-    protected int b_enemyGold;
+    protected float b_enemyGold;
 
+    protected float enemyMaxHealth { get; set; }
     protected float enemyHealth { get; set; }
-    protected int enemyGold
+    protected float enemyGold
     {
         get { return b_enemyGold; }
         set

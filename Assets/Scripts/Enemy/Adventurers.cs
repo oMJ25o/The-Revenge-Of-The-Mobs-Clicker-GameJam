@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Archer : Enemy
+public class Adventurers : Enemy
 {
     // Start is called before the first frame update
     void Start()
@@ -19,9 +19,9 @@ public class Archer : Enemy
     protected override void SetUpEnemy()
     {
         base.SetUpEnemy();
-        enemyHealth = enemyStats.enemyHealth * spawnManager.gameLevel;
-        enemyGold = enemyStats.enemyGold * (spawnManager.gameLevel);
-
+        enemyHealth = enemyStats.enemyHealth * spawnManager.gameLevel + (spawnManager.gameLevel * 19);
+        enemyMaxHealth = enemyHealth;
+        enemyGold = enemyStats.enemyGold * spawnManager.gameLevel;
         UpdateHealthUI();
     }
 

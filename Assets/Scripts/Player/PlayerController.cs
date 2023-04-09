@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Sprite[] backgroundImages;
+    [SerializeField] private Sprite[] nightBackgroundImages;
+    [SerializeField] private Sprite[] dayBackgroundImages;
     [SerializeField] private Image backgroundImageUI;
     [SerializeField] private Text attackDamageStatsText;
     [SerializeField] private Text attackSpeedStatsText;
@@ -76,13 +77,13 @@ public class PlayerController : MonoBehaviour
         if (mobsKilled >= (30 * spawnManager.gameLevel) && !spawnManager.dayTime)
         {
             spawnManager.dayTime = true;
-            backgroundImageUI.sprite = backgroundImages[spawnManager.gameLevel];
+            backgroundImageUI.sprite = dayBackgroundImages[spawnManager.gameLevel - 1];
         }
-        else if (adventurerKilled >= (10 + spawnManager.gameLevel))
+        else if (adventurerKilled >= (10 * spawnManager.gameLevel))
         {
-            spawnManager.gameLevel++;
             spawnManager.dayTime = false;
-            backgroundImageUI.sprite = backgroundImages[spawnManager.gameLevel];
+            backgroundImageUI.sprite = nightBackgroundImages[spawnManager.gameLevel];
+            spawnManager.gameLevel++;
             gameLevelText.text = "Game Level: " + spawnManager.gameLevel;
         }
     }
