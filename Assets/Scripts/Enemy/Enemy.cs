@@ -49,10 +49,7 @@ public abstract class Enemy : MonoBehaviour
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         enemyHealthBar = GameObject.Find("HealthBar");
         enemyHealthText = GameObject.Find("HealthText").GetComponent<Text>();
-        enemyHealth = enemyStats.enemyHealth * spawnManager.gameLevel;
-        enemyGold = enemyStats.enemyGold;
 
-        UpdateHealthUI();
     }
 
     protected virtual void UpdateHealthUI()

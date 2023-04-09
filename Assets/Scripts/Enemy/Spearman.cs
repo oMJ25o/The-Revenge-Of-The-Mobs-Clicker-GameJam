@@ -16,6 +16,21 @@ public class Spearman : Enemy
 
     }
 
+    protected override void SetUpEnemy()
+    {
+        base.SetUpEnemy();
+        enemyHealth = enemyStats.enemyHealth * spawnManager.gameLevel;
+        enemyGold = enemyStats.enemyGold * spawnManager.gameLevel;
+
+        UpdateHealthUI();
+    }
+
+    protected override void UpdateHealthUI()
+    {
+        enemyHealthBar.transform.localScale = new Vector3(enemyHealth / (enemyStats.enemyHealth * spawnManager.gameLevel), 1, 1);
+        enemyHealthText.text = " " + enemyHealth + " / " + enemyStats.enemyHealth;
+    }
+
     protected override void OnMouseDown()
     {
         if (!playerController.isAttackCooldown)

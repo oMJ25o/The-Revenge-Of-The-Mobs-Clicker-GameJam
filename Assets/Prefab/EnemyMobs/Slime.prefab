@@ -95,11 +95,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8101405571458571474}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7716ae1b72e8c43bb35a590bc239e5, type: 3}
+  m_Script: {fileID: 11500000, guid: cabc4bbbd996bba4f93a457706c597a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealthBar: {fileID: 0}
-  enemyHealthText: {fileID: 0}
   enemyStats: {fileID: 11400000, guid: 7f244c2b3633e454c924f76aebe7573a, type: 2}
 --- !u!65 &8101405571458571478
 BoxCollider:

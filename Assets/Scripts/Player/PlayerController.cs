@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public bool isAttackCooldown = false;
     [HideInInspector] public int adventurerKilled = 0;
+    [HideInInspector] public int mobsKilled = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -72,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
     public void CheckToChangeTime()
     {
-        if (playerGold >= (150 * spawnManager.gameLevel) && !spawnManager.dayTime)
+        if (mobsKilled >= (30 * spawnManager.gameLevel) && !spawnManager.dayTime)
         {
             spawnManager.dayTime = true;
             backgroundImageUI.sprite = backgroundImages[spawnManager.gameLevel];
@@ -80,9 +81,9 @@ public class PlayerController : MonoBehaviour
         else if (adventurerKilled >= (10 + spawnManager.gameLevel))
         {
             spawnManager.gameLevel++;
-            gameLevelText.text = "Game Level: " + spawnManager.gameLevel;
             spawnManager.dayTime = false;
             backgroundImageUI.sprite = backgroundImages[spawnManager.gameLevel];
+            gameLevelText.text = "Game Level: " + spawnManager.gameLevel;
         }
     }
 

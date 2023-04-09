@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slime : Enemy
+public class Mobs : Enemy
 {
     // Start is called before the first frame update
     void Start()
@@ -16,6 +16,15 @@ public class Slime : Enemy
 
     }
 
+    protected override void SetUpEnemy()
+    {
+        base.SetUpEnemy();
+        enemyHealth = enemyStats.enemyHealth;
+        enemyGold = enemyStats.enemyGold;
+
+        UpdateHealthUI();
+    }
+
     protected override void OnMouseDown()
     {
         if (!playerController.isAttackCooldown)
@@ -27,6 +36,7 @@ public class Slime : Enemy
             if (enemyHealth <= 0)
             {
                 playerController.playerGold += (enemyGold * playerController.goldRate);
+                playerController.mobsKilled++;
                 playerController.UpdatePlayerGold();
                 playerController.CheckToChangeTime();
                 spawnManager.SpawnEnemy();
@@ -34,5 +44,4 @@ public class Slime : Enemy
             }
         }
     }
-
 }
