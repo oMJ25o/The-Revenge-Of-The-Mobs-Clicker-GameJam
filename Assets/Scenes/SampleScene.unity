@@ -3648,6 +3648,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3e29d23444ba0f9409ee709b026ca711, type: 3}
   - {fileID: 21300000, guid: 6024e675d19e957498208879be39179a, type: 3}
   - {fileID: 21300000, guid: 9812f44bd8d374e4eb6b70e28303393a, type: 3}
+  hireUI: {fileID: 872233690}
   goldPanel: {fileID: 171816920}
   goldAddPrefab: {fileID: 7512489149635622540, guid: 223e3f9d971350743b982d2bea29fbe9, type: 3}
   backgroundImageUI: {fileID: 1370331316}
@@ -3669,6 +3670,7 @@ MonoBehaviour:
   isAttackCooldown: 0
   adventurerKilled: 0
   mobsKilled: 0
+  enemyGold: 0
 --- !u!95 &1298635933
 Animator:
   serializedVersion: 5

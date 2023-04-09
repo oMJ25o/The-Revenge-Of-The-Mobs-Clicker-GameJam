@@ -20,6 +20,7 @@ public class Mobs : Enemy
     {
         base.SetUpEnemy();
         enemyHealth = enemyStats.enemyHealth;
+        enemyMaxHealth = enemyHealth;
         enemyGold = enemyStats.enemyGold;
 
         UpdateHealthUI();
@@ -38,7 +39,7 @@ public class Mobs : Enemy
             {
                 playerController.playerGold += (enemyGold * playerController.goldRate);
                 playerController.mobsKilled++;
-                playerController.PlayAddPlayerGoldAnimation();
+                playerController.PlayAddPlayerGoldAnimation(enemyGold * playerController.goldRate);
                 playerController.CheckToChangeTime();
                 spawnManager.SpawnEnemy();
                 Destroy(gameObject);

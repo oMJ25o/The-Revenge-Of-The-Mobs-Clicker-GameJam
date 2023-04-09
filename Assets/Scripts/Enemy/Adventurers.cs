@@ -27,7 +27,7 @@ public class Adventurers : Enemy
 
     protected override void UpdateHealthUI()
     {
-        enemyHealthBar.transform.localScale = new Vector3(enemyHealth / (enemyStats.enemyHealth * spawnManager.gameLevel), 1, 1);
+        enemyHealthBar.transform.localScale = new Vector3(enemyHealth / enemyMaxHealth, 1, 1);
         enemyHealthText.text = " " + enemyHealth + " / " + enemyStats.enemyHealth;
     }
 
@@ -42,7 +42,7 @@ public class Adventurers : Enemy
             if (enemyHealth <= 0)
             {
                 playerController.playerGold += (enemyGold * playerController.goldRate);
-                playerController.PlayAddPlayerGoldAnimation();
+                playerController.PlayAddPlayerGoldAnimation((enemyGold * playerController.goldRate));
                 playerController.adventurerKilled++;
                 playerController.CheckToChangeTime();
                 spawnManager.SpawnEnemy();

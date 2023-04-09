@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Sprite[] nightBackgroundImages;
     [SerializeField] private Sprite[] dayBackgroundImages;
+    [SerializeField] private GameObject hireUI;
     [SerializeField] private GameObject goldPanel;
     [SerializeField] private GameObject goldAddPrefab;
     [SerializeField] private Image backgroundImageUI;
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool isAttackCooldown = false;
     [HideInInspector] public int adventurerKilled = 0;
     [HideInInspector] public int mobsKilled = 0;
+    [HideInInspector] public float enemyGold;
 
     // Start is called before the first frame update
     void Start()
@@ -62,8 +64,9 @@ public class PlayerController : MonoBehaviour
         hitAnimation.Play("hitAnimation");
     }
 
-    public void PlayAddPlayerGoldAnimation()
+    public void PlayAddPlayerGoldAnimation(float gold)
     {
+        enemyGold = gold;
         Instantiate(goldAddPrefab, goldPanel.transform);
     }
 
@@ -85,6 +88,10 @@ public class PlayerController : MonoBehaviour
         {
             spawnManager.dayTime = true;
             backgroundImageUI.sprite = dayBackgroundImages[spawnManager.gameLevel - 1];
+            if (!hireUI.activeSelf)
+            {
+                hireUI.SetActive(true);
+            }
         }
         else if (adventurerKilled >= (10 * spawnManager.gameLevel))
         {

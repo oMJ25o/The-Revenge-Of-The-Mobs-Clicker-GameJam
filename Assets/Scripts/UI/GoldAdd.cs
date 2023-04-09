@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GoldAdd : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GoldAdd : MonoBehaviour
     void Start()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        gameObject.GetComponent<Text>().text = string.Format("+{0:0}", playerController.enemyGold);
         gameObject.GetComponent<Animator>().Play("AddPlayerGold");
     }
 
