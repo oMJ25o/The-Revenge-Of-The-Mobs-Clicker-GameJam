@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Sprite[] nightBackgroundImages;
     [SerializeField] private Sprite[] dayBackgroundImages;
+    [SerializeField] private GameObject goldPanel;
+    [SerializeField] private GameObject goldAddPrefab;
     [SerializeField] private Image backgroundImageUI;
     [SerializeField] private Text attackDamageStatsText;
     [SerializeField] private Text attackSpeedStatsText;
@@ -58,6 +60,11 @@ public class PlayerController : MonoBehaviour
     public void PlayHitAnimation()
     {
         hitAnimation.Play("hitAnimation");
+    }
+
+    public void PlayAddPlayerGoldAnimation()
+    {
+        Instantiate(goldAddPrefab, goldPanel.transform);
     }
 
     public void UpdatePlayerGold()

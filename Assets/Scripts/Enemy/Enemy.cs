@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] protected EnemyStats enemyStats;
+    [SerializeField] protected Animator enemyAnimation;
 
     protected GameObject enemyHealthBar;
     protected Text enemyHealthText;

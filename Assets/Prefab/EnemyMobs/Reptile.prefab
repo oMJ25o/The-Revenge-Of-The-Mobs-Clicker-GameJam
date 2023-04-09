@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2414295560371502241}
   - component: {fileID: 2414295560371502243}
   - component: {fileID: 2414295560371502242}
+  - component: {fileID: 6799975145860823127}
   m_Layer: 0
   m_Name: Reptile
   m_TagString: Enemy
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 1fd2104b899785440985d8bd0689beb9, type: 2}
+  enemyAnimation: {fileID: 6799975145860823127}
 --- !u!65 &2414295560371502242
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -112,3 +114,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.8145976, y: 3.551031, z: 0.20000002}
   m_Center: {x: -0.3202219, y: 0.50690275, z: -0}
+--- !u!95 &6799975145860823127
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2414295560371502246}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 36e9413e6f6d4774189bb60fca60e86a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

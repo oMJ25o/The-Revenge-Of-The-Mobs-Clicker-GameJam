@@ -42,7 +42,7 @@ public class Adventurers : Enemy
             if (enemyHealth <= 0)
             {
                 playerController.playerGold += (enemyGold * playerController.goldRate);
-                playerController.UpdatePlayerGold();
+                playerController.PlayAddPlayerGoldAnimation();
                 playerController.adventurerKilled++;
                 playerController.CheckToChangeTime();
                 spawnManager.SpawnEnemy();

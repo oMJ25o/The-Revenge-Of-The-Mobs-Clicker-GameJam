@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 7247072059321199005}
   - component: {fileID: 7247072059321199007}
   - component: {fileID: 7247072059321199006}
+  - component: {fileID: 4554413991327701758}
   m_Layer: 0
-  m_Name: Giant
+  m_Name: Dragon
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 6e6be00ba41be6446be927d874764606, type: 2}
+  enemyAnimation: {fileID: 4554413991327701758}
 --- !u!65 &7247072059321199006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -112,3 +114,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.9442844, y: 1.8115957, z: 0.20000002}
   m_Center: {x: -0.055781364, y: -0.3455883, z: 0}
+--- !u!95 &4554413991327701758
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7247072059321199002}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 90d875d356e8ded46b2e1e6fe84cd960, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

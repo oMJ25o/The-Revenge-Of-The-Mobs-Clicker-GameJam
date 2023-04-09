@@ -32,12 +32,13 @@ public class Mobs : Enemy
             enemyHealth -= playerController.attackDamage;
             UpdateHealthUI();
             playerController.PlayAttackAnimation();
+            enemyAnimation.Play("TakeDamage");
 
             if (enemyHealth <= 0)
             {
                 playerController.playerGold += (enemyGold * playerController.goldRate);
                 playerController.mobsKilled++;
-                playerController.UpdatePlayerGold();
+                playerController.PlayAddPlayerGoldAnimation();
                 playerController.CheckToChangeTime();
                 spawnManager.SpawnEnemy();
                 Destroy(gameObject);
