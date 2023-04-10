@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Adventurers : Enemy
 {
+    private bool isDead = false;
+    public int direction;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,8 +46,9 @@ public class Adventurers : Enemy
 
     public override void CheckEnemyDead()
     {
-        if (enemyHealth <= 0)
+        if (enemyHealth <= 0 && !isDead)
         {
+            isDead = true;
             playerController.playerGold += (enemyGold * playerController.goldRate);
             playerController.PlayAddPlayerGoldAnimation((enemyGold * playerController.goldRate));
             playerController.adventurerKilled++;

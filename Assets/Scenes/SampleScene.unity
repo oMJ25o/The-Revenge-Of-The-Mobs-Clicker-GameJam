@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 76173671}
   - component: {fileID: 76173673}
   - component: {fileID: 76173672}
+  - component: {fileID: 76173674}
   m_Layer: 5
   m_Name: ReptileAllyHUD
   m_TagString: Untagged
@@ -280,6 +281,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76173670}
   m_CullTransparentMesh: 1
+--- !u!114 &76173674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76173670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 76173672}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 872233694}
+        m_TargetAssemblyTypeName: HireManager, Assembly-CSharp
+        m_MethodName: HireAlly
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &103726954
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,6 +795,7 @@ GameObject:
   - component: {fileID: 206961424}
   - component: {fileID: 206961426}
   - component: {fileID: 206961425}
+  - component: {fileID: 206961427}
   m_Layer: 5
   m_Name: GhostAllyHUD
   m_TagString: Untagged
@@ -807,6 +865,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206961423}
   m_CullTransparentMesh: 1
+--- !u!114 &206961427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206961423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 206961425}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 872233694}
+        m_TargetAssemblyTypeName: HireManager, Assembly-CSharp
+        m_MethodName: HireAlly
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &272339499
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,7 +933,7 @@ GameObject:
   - component: {fileID: 272339502}
   - component: {fileID: 272339501}
   m_Layer: 5
-  m_Name: BoarAllyTextCount
+  m_Name: GhostAllyTextCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1783,7 +1897,7 @@ GameObject:
   - component: {fileID: 489683346}
   - component: {fileID: 489683345}
   m_Layer: 5
-  m_Name: SlimeCostText
+  m_Name: GhostCostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2318,7 +2432,7 @@ GameObject:
   - component: {fileID: 744420524}
   - component: {fileID: 744420523}
   m_Layer: 5
-  m_Name: BoarAllyTextCount
+  m_Name: ReptileAllyTextCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2933,20 +3047,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 1298635932}
-  hireButtons:
-  - {fileID: 355782227}
-  - {fileID: 1501327938}
-  - {fileID: 206961423}
-  - {fileID: 76173670}
-  allyObjects:
-  - {fileID: 9208459227332952424, guid: 60abfe236b5ad5f4ca46825356cb73db, type: 3}
+  hireUI: {fileID: 2043738239}
+  slimeHireCountText: {fileID: 2120305242}
+  boarHireCountText: {fileID: 718380319}
+  ghostHireCountText: {fileID: 272339501}
+  reptileHireCountText: {fileID: 744420523}
+  slimeHireCountImage: {fileID: 1599057920}
+  boarHireCountImage: {fileID: 881407961}
+  ghostHireCountImage: {fileID: 962792865}
+  reptileHireCountImage: {fileID: 690778585}
   allyPrefabs:
   - {fileID: 9208459227332952424, guid: 60abfe236b5ad5f4ca46825356cb73db, type: 3}
+  - {fileID: 9208459227332952424, guid: 018ea85c06ddfa84b876ac6cac97ef64, type: 3}
+  - {fileID: 9208459227332952424, guid: 4a52478c2ab36ef478b2145a96c91fb6, type: 3}
+  - {fileID: 9208459227332952424, guid: 81bc10c99fc481c4d9124f22033431cb, type: 3}
   spawnManager: {fileID: 580654878}
   slimeHireCost: 100
   boarHireCost: 300
   ghostHireCost: 700
   reptileHireCost: 1250
+  slimeHireCostText: {fileID: 329689400}
+  boarHireCostText: {fileID: 1851033741}
+  ghostHireCostText: {fileID: 489683345}
+  reptileHireCostText: {fileID: 1721754750}
+  slimeHireButton: {fileID: 355782231}
+  boarHireButton: {fileID: 1501327942}
+  ghostHireButton: {fileID: 206961427}
+  reptileHireButton: {fileID: 76173674}
   slimeAllyCount: 0
   boarAllyCount: 0
   ghostAllyCount: 0
@@ -5078,6 +5205,7 @@ GameObject:
   - component: {fileID: 1501327939}
   - component: {fileID: 1501327941}
   - component: {fileID: 1501327940}
+  - component: {fileID: 1501327942}
   m_Layer: 5
   m_Name: BoarAllyHUD
   m_TagString: Untagged
@@ -5147,6 +5275,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501327938}
   m_CullTransparentMesh: 1
+--- !u!114 &1501327942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501327938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1501327940}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 872233694}
+        m_TargetAssemblyTypeName: HireManager, Assembly-CSharp
+        m_MethodName: HireAlly
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1518506072
 GameObject:
   m_ObjectHideFlags: 0
@@ -5464,7 +5648,7 @@ GameObject:
   - component: {fileID: 1721754751}
   - component: {fileID: 1721754750}
   m_Layer: 5
-  m_Name: SlimeCostText
+  m_Name: ReptileCostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5653,7 +5837,7 @@ GameObject:
   - component: {fileID: 1851033742}
   - component: {fileID: 1851033741}
   m_Layer: 5
-  m_Name: SlimeCostText
+  m_Name: BoarCostText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

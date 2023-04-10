@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Mobs : Enemy
 {
+    private bool isDead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +41,7 @@ public class Mobs : Enemy
 
     public override void CheckEnemyDead()
     {
-        if (enemyHealth <= 0)
+        if (enemyHealth <= 0 && !isDead)
         {
             playerController.playerGold += (enemyGold * playerController.goldRate);
             playerController.mobsKilled++;

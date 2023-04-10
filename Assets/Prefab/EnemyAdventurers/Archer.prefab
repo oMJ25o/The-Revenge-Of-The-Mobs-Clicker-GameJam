@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7292949341488233233}
   - component: {fileID: 3094390590497664818}
   - component: {fileID: 7292949341488233234}
+  - component: {fileID: 8941036038282580625}
   m_Layer: 0
   m_Name: Archer
   m_TagString: EnemyAdventurer
@@ -99,7 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 843ab55d877551649b2a04835f12e1bb, type: 2}
-  enemyAnimation: {fileID: 0}
+  enemyAnimation: {fileID: 8941036038282580625}
+  b_enemyGold: 0
 --- !u!65 &7292949341488233234
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -113,3 +115,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.3477917, y: 2.6595147, z: 0.20000002}
   m_Center: {x: 0.25608873, y: 0.0722183, z: 0}
+--- !u!95 &8941036038282580625
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7292949341488233238}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

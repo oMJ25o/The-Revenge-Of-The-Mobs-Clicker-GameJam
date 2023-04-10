@@ -6,6 +6,7 @@ public class Ally : MonoBehaviour
 {
     [SerializeField] private AllyStats allyStats;
     [SerializeField] private Animator allyAnimator;
+    private HireManager hireManager;
     private GameObject enemyMob;
     private GameObject enemyAdventurer;
     private Mobs enemyMobController;
@@ -15,6 +16,7 @@ public class Ally : MonoBehaviour
     void Start()
     {
         allyAttack = allyStats.allyAttack;
+        hireManager = GameObject.Find("HireAllies").GetComponent<HireManager>();
         FindTarget();
     }
 
