@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private GameObject goldText;
+    [SerializeField] private GameObject goldPanel;
     [SerializeField] private int attackDamageUpgrade;
     [SerializeField] private float attackSpeedUpgrade;
     [SerializeField] private float goldRateUpgrade;
@@ -19,7 +21,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private Text attackSpeedDamageCostText;
     [SerializeField] private Text goldRateCostText;
 
-
+    [HideInInspector] public int playerUpgradeCost;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,14 @@ public class ShopManager : MonoBehaviour
         attackDamageCostText.text = "" + (attackDamageUpgradeCost * (playerController.attackUpgraded + 1));
         attackSpeedDamageCostText.text = "" + (attackSpeedUpgradeCost * (playerController.speedUpgraded + 1));
         goldRateCostText.text = "" + (goldRateUpgradeCost * (playerController.goldRateUpgraded + 1));
+        playerController.UpdatePlayerGold();
+        playerController.UpdatePlayerStats();
+    }
+
+    public void PlayReduceGoldAnimation(int cost)
+    {
+        playerUpgradeCost = cost;
+        Instantiate(goldText, goldPanel.transform);
     }
 
     public void UpgradePlayerStats(string upgradeName)
@@ -53,10 +63,9 @@ public class ShopManager : MonoBehaviour
                 {
                     playerController.playerGold -= (attackDamageUpgradeCost * (playerController.attackUpgraded + 1));
                     playerController.attackDamage += attackDamageUpgrade;
+                    PlayReduceGoldAnimation(attackDamageUpgradeCost * (playerController.attackUpgraded + 1));
                     playerController.attackUpgraded++;
                     UpdateShopCost();
-                    playerController.UpdatePlayerGold();
-                    playerController.UpdatePlayerStats();
                 }
                 return;
             case "Speed":
@@ -64,10 +73,9 @@ public class ShopManager : MonoBehaviour
                 {
                     playerController.playerGold -= (attackSpeedUpgradeCost * (playerController.speedUpgraded + 1));
                     playerController.attackSpeed += attackSpeedUpgrade;
+                    PlayReduceGoldAnimation(attackSpeedUpgradeCost * (playerController.speedUpgraded + 1));
                     playerController.speedUpgraded++;
                     UpdateShopCost();
-                    playerController.UpdatePlayerGold();
-                    playerController.UpdatePlayerStats();
                 }
                 return;
             case "GoldRate":
@@ -75,10 +83,9 @@ public class ShopManager : MonoBehaviour
                 {
                     playerController.playerGold -= (goldRateUpgradeCost * (playerController.goldRateUpgraded + 1));
                     playerController.goldRate += goldRateUpgrade;
+                    PlayReduceGoldAnimation(goldRateUpgradeCost * (playerController.goldRateUpgraded + 1));
                     playerController.goldRateUpgraded++;
                     UpdateShopCost();
-                    playerController.UpdatePlayerGold();
-                    playerController.UpdatePlayerStats();
                 }
                 return;
         }

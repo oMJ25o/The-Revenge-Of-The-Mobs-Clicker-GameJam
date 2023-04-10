@@ -1619,6 +1619,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 1298635932}
+  goldText: {fileID: 7512489149635622540, guid: 9ee4f757e5b6cb647931a9c8f85e00aa, type: 3}
+  goldPanel: {fileID: 171816920}
   attackDamageUpgrade: 5
   attackSpeedUpgrade: 0.2
   goldRateUpgrade: 0.1
@@ -1631,6 +1633,7 @@ MonoBehaviour:
   attackDamageCostText: {fileID: 1088302362}
   attackSpeedDamageCostText: {fileID: 880781168}
   goldRateCostText: {fileID: 1200583757}
+  playerUpgradeCost: 0
 --- !u!1 &489683343
 GameObject:
   m_ObjectHideFlags: 0
