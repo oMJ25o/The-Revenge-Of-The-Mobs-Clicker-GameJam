@@ -2940,7 +2940,8 @@ MonoBehaviour:
   - {fileID: 76173670}
   allyObjects:
   - {fileID: 9208459227332952424, guid: 60abfe236b5ad5f4ca46825356cb73db, type: 3}
-  allyPrefabs: []
+  allyPrefabs:
+  - {fileID: 9208459227332952424, guid: 60abfe236b5ad5f4ca46825356cb73db, type: 3}
   spawnManager: {fileID: 580654878}
   slimeHireCost: 100
   boarHireCost: 300
