@@ -88,10 +88,8 @@ public class PlayerController : MonoBehaviour
         {
             spawnManager.dayTime = true;
             backgroundImageUI.sprite = dayBackgroundImages[spawnManager.gameLevel - 1];
-            if (!hireUI.activeSelf)
-            {
-                hireUI.SetActive(true);
-            }
+            hireUI.gameObject.SetActive(true);
+            hireUI.GetComponent<HireManager>().DisplayHire();
         }
         else if (adventurerKilled >= (10 * spawnManager.gameLevel))
         {

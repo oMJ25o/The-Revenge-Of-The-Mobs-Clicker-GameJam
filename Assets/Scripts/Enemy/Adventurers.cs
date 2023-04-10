@@ -28,7 +28,7 @@ public class Adventurers : Enemy
     protected override void UpdateHealthUI()
     {
         enemyHealthBar.transform.localScale = new Vector3(enemyHealth / enemyMaxHealth, 1, 1);
-        enemyHealthText.text = " " + enemyHealth + " / " + enemyStats.enemyHealth;
+        enemyHealthText.text = " " + enemyHealth + " / " + enemyStats.enemyHealth * spawnManager.gameLevel + (spawnManager.gameLevel * 19);
     }
 
     protected override void OnMouseDown()
