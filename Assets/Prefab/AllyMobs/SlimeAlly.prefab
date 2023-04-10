@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4238725704895752208}
   - component: {fileID: 282324215158720372}
-  - component: {fileID: 1273881030187431489}
+  - component: {fileID: 4111810700377320521}
   - component: {fileID: 7601509271352294228}
   m_Layer: 0
   m_Name: SlimeAlly
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1273881030187431489
+--- !u!114 &4111810700377320521
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,11 +95,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9208459227332952424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cabc4bbbd996bba4f93a457706c597a6, type: 3}
+  m_Script: {fileID: 11500000, guid: e23691bd20913c14e9ef218c0e88329f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStats: {fileID: 11400000, guid: 7f244c2b3633e454c924f76aebe7573a, type: 2}
-  enemyAnimation: {fileID: 7601509271352294228}
+  allyStats: {fileID: 11400000, guid: a8554219bee9cc348b7470613736029b, type: 2}
+  allyAnimator: {fileID: 7601509271352294228}
 --- !u!95 &7601509271352294228
 Animator:
   serializedVersion: 5

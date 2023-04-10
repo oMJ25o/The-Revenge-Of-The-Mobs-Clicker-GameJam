@@ -25,10 +25,10 @@ public class Adventurers : Enemy
         UpdateHealthUI();
     }
 
-    protected override void UpdateHealthUI()
+    public override void UpdateHealthUI()
     {
         enemyHealthBar.transform.localScale = new Vector3(enemyHealth / enemyMaxHealth, 1, 1);
-        enemyHealthText.text = " " + enemyHealth + " / " + enemyStats.enemyHealth * spawnManager.gameLevel + (spawnManager.gameLevel * 19);
+        enemyHealthText.text = " " + enemyHealth + " / " + enemyMaxHealth;
     }
 
     protected override void OnMouseDown()
@@ -38,16 +38,20 @@ public class Adventurers : Enemy
             enemyHealth -= playerController.attackDamage;
             UpdateHealthUI();
             playerController.PlayAttackAnimation();
+            CheckEnemyDead();
+        }
+    }
 
-            if (enemyHealth <= 0)
-            {
-                playerController.playerGold += (enemyGold * playerController.goldRate);
-                playerController.PlayAddPlayerGoldAnimation((enemyGold * playerController.goldRate));
-                playerController.adventurerKilled++;
-                playerController.CheckToChangeTime();
-                spawnManager.SpawnEnemy();
-                Destroy(gameObject);
-            }
+    public override void CheckEnemyDead()
+    {
+        if (enemyHealth <= 0)
+        {
+            playerController.playerGold += (enemyGold * playerController.goldRate);
+            playerController.PlayAddPlayerGoldAnimation((enemyGold * playerController.goldRate));
+            playerController.adventurerKilled++;
+            playerController.CheckToChangeTime();
+            spawnManager.SpawnEnemy();
+            Destroy(gameObject);
         }
     }
 }

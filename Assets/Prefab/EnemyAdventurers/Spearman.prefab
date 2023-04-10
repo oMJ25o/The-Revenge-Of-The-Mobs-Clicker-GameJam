@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1546795476544806379}
   m_Layer: 0
   m_Name: Spearman
-  m_TagString: Enemy
+  m_TagString: EnemyAdventurer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: d5f4f0536d24f044cac24e0d11352254, type: 2}
+  enemyAnimation: {fileID: 0}
 --- !u!65 &1546795476544806379
 BoxCollider:
   m_ObjectHideFlags: 0

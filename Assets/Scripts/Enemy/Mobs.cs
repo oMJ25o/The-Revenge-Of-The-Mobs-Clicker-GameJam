@@ -34,16 +34,20 @@ public class Mobs : Enemy
             UpdateHealthUI();
             playerController.PlayAttackAnimation();
             enemyAnimation.Play("TakeDamage");
+            CheckEnemyDead();
+        }
+    }
 
-            if (enemyHealth <= 0)
-            {
-                playerController.playerGold += (enemyGold * playerController.goldRate);
-                playerController.mobsKilled++;
-                playerController.PlayAddPlayerGoldAnimation(enemyGold * playerController.goldRate);
-                playerController.CheckToChangeTime();
-                spawnManager.SpawnEnemy();
-                Destroy(gameObject);
-            }
+    public override void CheckEnemyDead()
+    {
+        if (enemyHealth <= 0)
+        {
+            playerController.playerGold += (enemyGold * playerController.goldRate);
+            playerController.mobsKilled++;
+            playerController.PlayAddPlayerGoldAnimation(enemyGold * playerController.goldRate);
+            playerController.CheckToChangeTime();
+            spawnManager.SpawnEnemy();
+            Destroy(gameObject);
         }
     }
 }

@@ -11,11 +11,11 @@ public abstract class Enemy : MonoBehaviour
     protected GameObject enemyHealthBar;
     protected Text enemyHealthText;
 
-    protected float b_enemyGold;
+    public float b_enemyGold;
 
     protected float enemyMaxHealth { get; set; }
-    protected float enemyHealth { get; set; }
-    protected float enemyGold
+    public float enemyHealth { get; set; }
+    public float enemyGold
     {
         get { return b_enemyGold; }
         set
@@ -54,12 +54,12 @@ public abstract class Enemy : MonoBehaviour
 
     }
 
-    protected virtual void UpdateHealthUI()
+    public virtual void UpdateHealthUI()
     {
         enemyHealthBar.transform.localScale = new Vector3(enemyHealth / enemyMaxHealth, 1, 1);
-        enemyHealthText.text = " " + enemyHealth + " / " + enemyStats.enemyHealth;
+        enemyHealthText.text = " " + enemyHealth + " / " + enemyMaxHealth;
     }
 
     protected abstract void OnMouseDown();
-
+    public abstract void CheckEnemyDead();
 }
