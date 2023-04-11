@@ -6,6 +6,7 @@ public abstract class Ally : MonoBehaviour
 {
     [SerializeField] protected AllyStats allyStats;
     [SerializeField] protected Animator allyAnimator;
+    protected Animator hitAnimator;
     protected HireManager hireManager;
     protected GameObject enemyMob;
     protected GameObject enemyAdventurer;
@@ -32,23 +33,22 @@ public abstract class Ally : MonoBehaviour
         if (enemyMob != null)
         {
             enemyMobController = enemyMob.GetComponent<Mobs>();
-            AttackEnemyMob();
+            Invoke("AttackEnemyMob", 0f);
         }
         else if (enemyAdventurer != null)
         {
             enemyAdventurerController = enemyAdventurer.GetComponent<Adventurers>();
-            AttackEnemyAdventurer();
+            Invoke("AttackEnemyAdventurer", 0f);
         }
+    }
+
+    protected virtual void PlayHitAnimation()
+    {
+        hitAnimator.Play("Hit");
     }
 
     protected abstract void AttackEnemyMob();
 
     protected abstract void AttackEnemyAdventurer();
-
-    IEnumerator AllyAttackCooldown()
-    {
-        Debug.Log("Coroutine!");
-        yield return new WaitForSeconds(1);
-    }
 
 }

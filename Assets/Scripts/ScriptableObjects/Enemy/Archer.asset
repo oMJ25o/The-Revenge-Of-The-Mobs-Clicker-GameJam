@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94bed3ef196125f4784abbbe7f1021b1, type: 3}
   m_Name: Archer
   m_EditorClassIdentifier: 
-  enemyHealth: 50
-  enemyGold: 28
+  enemyHealth: 125
+  enemyGold: 35

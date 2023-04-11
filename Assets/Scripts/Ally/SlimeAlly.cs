@@ -8,6 +8,7 @@ public class SlimeAlly : Ally
     void Start()
     {
         allyAttack = allyStats.allyAttack;
+        hitAnimator = GameObject.Find("SlimeHitSprite").GetComponent<Animator>();
         hireManager = GameObject.Find("HireAllies").GetComponent<HireManager>();
         FindTarget();
     }
@@ -20,29 +21,36 @@ public class SlimeAlly : Ally
 
     protected override void AttackEnemyMob()
     {
-        while (enemyMob != null)
+        if (enemyMob != null)
         {
             allyAnimator.Play("Attack");
             enemyMobController.enemyHealth -= (allyAttack * hireManager.slimeAllyCount);
             enemyMobController.UpdateHealthUI();
             enemyMobController.CheckEnemyDead();
-            StartCoroutine("AllyAttackCooldown");
+            Invoke("AttackEnemyMob", 1f);
         }
-        FindTarget();
+        else
+        {
+            FindTarget();
+        }
     }
 
     protected override void AttackEnemyAdventurer()
     {
-        Debug.Log("Outside Loop!");
-        while (enemyAdventurer != null)
+        if (enemyAdventurer != null)
         {
-            Debug.Log("Inside Loop!!");
             allyAnimator.Play("Attack");
             enemyAdventurerController.enemyHealth -= (allyAttack * hireManager.slimeAllyCount);
             enemyAdventurerController.UpdateHealthUI();
             enemyAdventurerController.CheckEnemyDead();
-            StartCoroutine("AllyAttackCooldown");
+            Invoke("AttackEnemyAdventurer", 1f);
         }
-        FindTarget();
+        else
+        {
+            FindTarget();
+        }
     }
+
+
+
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mobs : Enemy
 {
-    private bool isDead = false;
+    public bool isDead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,7 @@ public class Mobs : Enemy
     protected override void SetUpEnemy()
     {
         base.SetUpEnemy();
-        enemyHealth = enemyStats.enemyHealth;
+        enemyHealth = enemyStats.enemyHealth + (playerController.mobsKilled * 14);
         enemyMaxHealth = enemyHealth;
         enemyGold = enemyStats.enemyGold;
 
@@ -43,6 +43,7 @@ public class Mobs : Enemy
     {
         if (enemyHealth <= 0 && !isDead)
         {
+            isDead = true;
             playerController.playerGold += (enemyGold * playerController.goldRate);
             playerController.mobsKilled++;
             playerController.PlayAddPlayerGoldAnimation(enemyGold * playerController.goldRate);

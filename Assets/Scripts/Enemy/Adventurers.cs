@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Adventurers : Enemy
 {
-    private bool isDead = false;
+    public bool isDead = false;
     public int direction;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class Adventurers : Enemy
     protected override void SetUpEnemy()
     {
         base.SetUpEnemy();
-        enemyHealth = enemyStats.enemyHealth * spawnManager.gameLevel + (spawnManager.gameLevel * 19);
+        enemyHealth = enemyStats.enemyHealth * spawnManager.gameLevel + (playerController.adventurerKilled * 28);
         enemyMaxHealth = enemyHealth;
         enemyGold = enemyStats.enemyGold * spawnManager.gameLevel;
         UpdateHealthUI();

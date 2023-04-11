@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94bed3ef196125f4784abbbe7f1021b1, type: 3}
   m_Name: Boar
   m_EditorClassIdentifier: 
-  enemyHealth: 94
-  enemyGold: 35
+  enemyHealth: 103
+  enemyGold: 47

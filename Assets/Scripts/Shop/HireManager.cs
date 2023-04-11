@@ -136,7 +136,7 @@ public class HireManager : MonoBehaviour
                 playerController.playerGold -= slimeHireCost;
                 playerController.UpdatePlayerGold();
                 slimeAllyCount++;
-                slimeHireCost += (75 * slimeAllyCount);
+                slimeHireCost += (35 * slimeAllyCount);
                 break;
             case 1:
                 if (!CheckPlayerGold(boarHireCost))
@@ -150,7 +150,7 @@ public class HireManager : MonoBehaviour
                 playerController.playerGold -= boarHireCost;
                 playerController.UpdatePlayerGold();
                 boarAllyCount++;
-                boarHireCost += (100 * boarAllyCount);
+                boarHireCost += (60 * boarAllyCount);
                 break;
             case 2:
                 if (!CheckPlayerGold(ghostHireCost))
@@ -164,7 +164,7 @@ public class HireManager : MonoBehaviour
                 playerController.playerGold -= ghostHireCost;
                 playerController.UpdatePlayerGold();
                 ghostAllyCount++;
-                ghostHireCost += (125 * boarAllyCount);
+                ghostHireCost += (95 * boarAllyCount);
                 break;
             case 3:
                 if (!CheckPlayerGold(reptileHireCost))
@@ -178,7 +178,7 @@ public class HireManager : MonoBehaviour
                 playerController.playerGold -= reptileHireCost;
                 playerController.UpdatePlayerGold();
                 reptileAllyCount++;
-                reptileHireCost += (175 * reptileAllyCount);
+                reptileHireCost += (110 * reptileAllyCount);
                 break;
         }
         UpdateHireCost();

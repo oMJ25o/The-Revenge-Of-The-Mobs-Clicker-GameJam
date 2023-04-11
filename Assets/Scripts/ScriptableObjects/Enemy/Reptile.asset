@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Reptile
   m_EditorClassIdentifier: 
   enemyHealth: 259
-  enemyGold: 78
+  enemyGold: 135

@@ -8,6 +8,7 @@ public class GhostAlly : Ally
     void Start()
     {
         allyAttack = allyStats.allyAttack;
+        hitAnimator = GameObject.Find("GhostHitSprite").GetComponent<Animator>();
         hireManager = GameObject.Find("HireAllies").GetComponent<HireManager>();
         FindTarget();
     }
@@ -20,27 +21,33 @@ public class GhostAlly : Ally
 
     protected override void AttackEnemyMob()
     {
-        while (enemyMob != null)
+        if (enemyMob != null)
         {
             allyAnimator.Play("Attack");
             enemyMobController.enemyHealth -= (allyAttack * hireManager.ghostAllyCount);
             enemyMobController.UpdateHealthUI();
             enemyMobController.CheckEnemyDead();
-            StartCoroutine("AllyAttackCooldown");
+            Invoke("AttackEnemyMob", 1f);
         }
-        FindTarget();
+        else
+        {
+            FindTarget();
+        }
     }
 
     protected override void AttackEnemyAdventurer()
     {
-        while (enemyAdventurer != null)
+        if (enemyAdventurer != null)
         {
             allyAnimator.Play("Attack");
             enemyAdventurerController.enemyHealth -= (allyAttack * hireManager.ghostAllyCount);
             enemyAdventurerController.UpdateHealthUI();
             enemyAdventurerController.CheckEnemyDead();
-            StartCoroutine("AllyAttackCooldown");
+            Invoke("AttackEnemyAdventurer", 1f);
         }
-        FindTarget();
+        else
+        {
+            FindTarget();
+        }
     }
 }

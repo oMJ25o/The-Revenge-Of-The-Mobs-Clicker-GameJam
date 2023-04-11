@@ -79,23 +79,32 @@ public class PlayerController : MonoBehaviour
     {
         attackDamageStatsText.text = string.Format("{0:0.0###}", attackDamage);
         attackSpeedStatsText.text = string.Format("{0:0.0###}", attackSpeed);
-        goldRateStatsText.text = "" + (goldRate * 100) + "%";
+        goldRateStatsText.text = string.Format("{0:0.00##}%", (goldRate * 100f));
     }
 
     public void CheckToChangeTime()
     {
-        if (mobsKilled >= (30 * spawnManager.gameLevel) && !spawnManager.dayTime)
+        if (mobsKilled >= (30 * spawnManager.gameLevel) && !spawnManager.dayTime && spawnManager.gameLevel < 7)
         {
             spawnManager.dayTime = true;
             backgroundImageUI.sprite = dayBackgroundImages[spawnManager.gameLevel - 1];
             hireUI.SetActive(true);
             hireUI.GetComponent<HireManager>().DisplayHire();
         }
-        else if (adventurerKilled >= (10 * spawnManager.gameLevel))
+        else if (adventurerKilled >= (15 * spawnManager.gameLevel) && spawnManager.gameLevel < 7)
         {
             spawnManager.dayTime = false;
             backgroundImageUI.sprite = nightBackgroundImages[spawnManager.gameLevel];
             spawnManager.gameLevel++;
+            gameLevelText.text = "Game Level: " + spawnManager.gameLevel;
+        }
+        else if (spawnManager.gameLevel >= 7)
+        {
+            spawnManager.dayTime = true;
+            if (adventurerKilled >= (15 * spawnManager.gameLevel))
+            {
+                spawnManager.gameLevel++;
+            }
             gameLevelText.text = "Game Level: " + spawnManager.gameLevel;
         }
     }
@@ -104,7 +113,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator AttackCooldown()
     {
         isAttackCooldown = true;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1 / attackSpeed);
         isAttackCooldown = false;
     }
 

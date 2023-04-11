@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94bed3ef196125f4784abbbe7f1021b1, type: 3}
   m_Name: Giant
   m_EditorClassIdentifier: 
-  enemyHealth: 376
-  enemyGold: 102
+  enemyHealth: 587
+  enemyGold: 215

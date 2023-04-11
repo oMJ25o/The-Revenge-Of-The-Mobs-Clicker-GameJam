@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4554413991327701758}
   m_Layer: 0
   m_Name: Dragon
-  m_TagString: Enemy
+  m_TagString: EnemyMob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 6e6be00ba41be6446be927d874764606, type: 2}
   enemyAnimation: {fileID: 4554413991327701758}
+  b_enemyGold: 0
+  isDead: 0
 --- !u!65 &7247072059321199006
 BoxCollider:
   m_ObjectHideFlags: 0

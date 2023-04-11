@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94bed3ef196125f4784abbbe7f1021b1, type: 3}
   m_Name: Spearman
   m_EditorClassIdentifier: 
-  enemyHealth: 75
-  enemyGold: 31
+  enemyHealth: 146
+  enemyGold: 39

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class BoarAlly : Ally
 {
+
     // Start is called before the first frame update
     void Start()
     {
         allyAttack = allyStats.allyAttack;
+        hitAnimator = GameObject.Find("BoarHitSprite").GetComponent<Animator>();
         hireManager = GameObject.Find("HireAllies").GetComponent<HireManager>();
         FindTarget();
     }
@@ -20,28 +22,39 @@ public class BoarAlly : Ally
 
     protected override void AttackEnemyMob()
     {
-        while (enemyMob != null)
+        if (enemyMob != null)
         {
             allyAnimator.Play("Attack");
             enemyMobController.enemyHealth -= (allyAttack * hireManager.boarAllyCount);
             enemyMobController.UpdateHealthUI();
             enemyMobController.CheckEnemyDead();
-            StartCoroutine("AllyAttackCooldown");
+            Invoke("AttackEnemyMob", 1f);
         }
-        FindTarget();
+        else
+        {
+            FindTarget();
+        }
     }
 
     protected override void AttackEnemyAdventurer()
     {
-        while (enemyAdventurer != null)
+        if (enemyAdventurer != null)
         {
             allyAnimator.Play("Attack");
             enemyAdventurerController.enemyHealth -= (allyAttack * hireManager.boarAllyCount);
             enemyAdventurerController.UpdateHealthUI();
             enemyAdventurerController.CheckEnemyDead();
-            StartCoroutine("AllyAttackCooldown");
+            Invoke("AttackEnemyAdventurer", 1f);
         }
-        FindTarget();
+        else
+        {
+            FindTarget();
+        }
+    }
+
+    protected override void PlayHitAnimation()
+    {
+        hitAnimator.Play("Hit");
     }
 
 }
