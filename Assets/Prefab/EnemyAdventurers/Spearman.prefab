@@ -100,8 +100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: d5f4f0536d24f044cac24e0d11352254, type: 2}
-  enemyAnimation: {fileID: 0}
+  enemyAnimation: {fileID: 6278189150477400425}
   b_enemyGold: 0
+  isDead: 0
+  direction: 0
 --- !u!65 &1546795476544806379
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -125,7 +127,7 @@ Animator:
   m_GameObject: {fileID: 1546795476544806383}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 69d810da4a24a5f46b2a9e3cbbe5464b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

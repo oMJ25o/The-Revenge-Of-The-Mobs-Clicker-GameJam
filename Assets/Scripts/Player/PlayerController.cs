@@ -79,26 +79,26 @@ public class PlayerController : MonoBehaviour
     {
         attackDamageStatsText.text = string.Format("{0:0.0###}", attackDamage);
         attackSpeedStatsText.text = string.Format("{0:0.0###}", attackSpeed);
-        goldRateStatsText.text = string.Format("{0:0.00##}%", (goldRate * 100f));
+        goldRateStatsText.text = string.Format("{0:0}%", (goldRate * 100f));
     }
 
     public void CheckToChangeTime()
     {
-        if (mobsKilled >= (30 * spawnManager.gameLevel) && !spawnManager.dayTime && spawnManager.gameLevel < 7)
+        if (mobsKilled >= (20 * spawnManager.gameLevel) && !spawnManager.dayTime && spawnManager.gameLevel <= 6)
         {
             spawnManager.dayTime = true;
             backgroundImageUI.sprite = dayBackgroundImages[spawnManager.gameLevel - 1];
             hireUI.SetActive(true);
             hireUI.GetComponent<HireManager>().DisplayHire();
         }
-        else if (adventurerKilled >= (15 * spawnManager.gameLevel) && spawnManager.gameLevel < 7)
+        else if (adventurerKilled >= (15 * spawnManager.gameLevel) && spawnManager.gameLevel <= 6)
         {
             spawnManager.dayTime = false;
             backgroundImageUI.sprite = nightBackgroundImages[spawnManager.gameLevel];
             spawnManager.gameLevel++;
             gameLevelText.text = "Game Level: " + spawnManager.gameLevel;
         }
-        else if (spawnManager.gameLevel >= 7)
+        else if (spawnManager.gameLevel > 6)
         {
             spawnManager.dayTime = true;
             if (adventurerKilled >= (15 * spawnManager.gameLevel))

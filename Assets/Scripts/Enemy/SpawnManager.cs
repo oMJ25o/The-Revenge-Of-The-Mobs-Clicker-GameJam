@@ -28,7 +28,15 @@ public class SpawnManager : MonoBehaviour
         enemyIndex = gameLevel - 1;
         if (!dayTime)
         {
-            Instantiate(enemyMobPrefabs[enemyIndex], enemyMobPrefabs[enemyIndex].transform.position, enemyMobPrefabs[enemyIndex].transform.rotation);
+            if (gameLevel >= 6)
+            {
+                enemyIndex = Random.Range(0, enemyMobPrefabs.Length);
+                Instantiate(enemyMobPrefabs[enemyIndex], enemyMobPrefabs[enemyIndex].transform.position, enemyMobPrefabs[enemyIndex].transform.rotation);
+            }
+            else
+            {
+                Instantiate(enemyMobPrefabs[enemyIndex], enemyMobPrefabs[enemyIndex].transform.position, enemyMobPrefabs[enemyIndex].transform.rotation);
+            }
         }
         else if (dayTime)
         {

@@ -40,6 +40,7 @@ public class Adventurers : Enemy
             enemyHealth -= playerController.attackDamage;
             UpdateHealthUI();
             playerController.PlayAttackAnimation();
+            enemyAnimation.Play("TakeDamage");
             CheckEnemyDead();
         }
     }

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class HireManager : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private GameObject goldText;
+    [SerializeField] private GameObject goldPanel;
     [SerializeField] private GameObject hireUI;
     [SerializeField] private Text slimeHireCountText;
     [SerializeField] private Text boarHireCountText;
@@ -30,14 +32,18 @@ public class HireManager : MonoBehaviour
     [SerializeField] private Button ghostHireButton;
     [SerializeField] private Button reptileHireButton;
 
+    private ShopManager shopManager;
+
     [HideInInspector] public int slimeAllyCount = 0;
     [HideInInspector] public int boarAllyCount = 0;
     [HideInInspector] public int ghostAllyCount = 0;
     [HideInInspector] public int reptileAllyCount = 0;
+    [HideInInspector] public int hireCost;
 
     // Start is called before the first frame update
     void Start()
     {
+        shopManager = GameObject.Find("Shop").GetComponent<ShopManager>();
         UpdateHireCost();
     }
 
@@ -133,6 +139,7 @@ public class HireManager : MonoBehaviour
                 {
                     SpawnAlly(allyIndex);
                 }
+                hireCost = slimeHireCost;
                 playerController.playerGold -= slimeHireCost;
                 playerController.UpdatePlayerGold();
                 slimeAllyCount++;
@@ -147,6 +154,7 @@ public class HireManager : MonoBehaviour
                 {
                     SpawnAlly(allyIndex);
                 }
+                hireCost = boarHireCost;
                 playerController.playerGold -= boarHireCost;
                 playerController.UpdatePlayerGold();
                 boarAllyCount++;
@@ -161,6 +169,7 @@ public class HireManager : MonoBehaviour
                 {
                     SpawnAlly(allyIndex);
                 }
+                hireCost = ghostHireCost;
                 playerController.playerGold -= ghostHireCost;
                 playerController.UpdatePlayerGold();
                 ghostAllyCount++;
@@ -175,12 +184,14 @@ public class HireManager : MonoBehaviour
                 {
                     SpawnAlly(allyIndex);
                 }
+                hireCost = reptileHireCost;
                 playerController.playerGold -= reptileHireCost;
                 playerController.UpdatePlayerGold();
                 reptileAllyCount++;
                 reptileHireCost += (110 * reptileAllyCount);
                 break;
         }
+        shopManager.PlayReduceGoldAnimation(hireCost);
         UpdateHireCost();
     }
 

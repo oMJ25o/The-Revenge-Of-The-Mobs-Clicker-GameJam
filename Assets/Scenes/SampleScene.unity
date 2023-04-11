@@ -1365,7 +1365,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 30 dmg/s
+  m_Text: 50 dmg/s
 --- !u!222 &337295590
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2141,7 +2141,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2262,6 +2262,9 @@ MonoBehaviour:
   enemyAdventurerPrefabs:
   - {fileID: 7292949341488233238, guid: 3ec59608481541f46a1d790bcaf4779b, type: 3}
   - {fileID: 1546795476544806383, guid: 47e9fcc870908c44f8e28cfdd6b8be1e, type: 3}
+  - {fileID: 8601490952890371301, guid: 326bc27e7bcb2034e8cf4c5e7870a4df, type: 3}
+  - {fileID: 8179532859967730457, guid: 40afe419124a5b4499cf835aae50aaff, type: 3}
+  - {fileID: 6154977949322277478, guid: 17f28f0379eb18f46904d0195b67fe26, type: 3}
   dayTime: 0
   enemyIndex: 0
   gameLevel: 1
@@ -3144,6 +3147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 1298635932}
+  goldText: {fileID: 0}
+  goldPanel: {fileID: 0}
   hireUI: {fileID: 2043738239}
   slimeHireCountText: {fileID: 2120305242}
   boarHireCountText: {fileID: 718380319}
@@ -3175,6 +3180,7 @@ MonoBehaviour:
   boarAllyCount: 0
   ghostAllyCount: 0
   reptileAllyCount: 0
+  hireCost: 0
 --- !u!1 &880781166
 GameObject:
   m_ObjectHideFlags: 0
@@ -4228,7 +4234,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 13 dmg/s
+  m_Text: 35 dmg/s
 --- !u!222 &1040341307
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5206,7 +5212,7 @@ MonoBehaviour:
   attackDamageStatsText: {fileID: 1039966487}
   attackSpeedStatsText: {fileID: 1003367367}
   goldRateStatsText: {fileID: 374690608}
-  attackDamage: 5
+  attackDamage: 10
   attackSpeed: 2
   goldRate: 1
   playerGold: 0
@@ -5940,7 +5946,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5 dmg/s
+  m_Text: 20 dmg/s
 --- !u!222 &1486860645
 CanvasRenderer:
   m_ObjectHideFlags: 0

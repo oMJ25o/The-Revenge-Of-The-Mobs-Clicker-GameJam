@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 319bf7361bd6f754f980ead81187832b, type: 3}
   m_Name: Slime
   m_EditorClassIdentifier: 
-  allyAttack: 5
+  allyAttack: 20
