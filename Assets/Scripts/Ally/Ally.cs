@@ -2,22 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ally : MonoBehaviour
+public abstract class Ally : MonoBehaviour
 {
-    [SerializeField] private AllyStats allyStats;
-    [SerializeField] private Animator allyAnimator;
-    private HireManager hireManager;
-    private GameObject enemyMob;
-    private GameObject enemyAdventurer;
-    private Mobs enemyMobController;
-    private Adventurers enemyAdventurerController;
-    private int allyAttack;
+    [SerializeField] protected AllyStats allyStats;
+    [SerializeField] protected Animator allyAnimator;
+    protected HireManager hireManager;
+    protected GameObject enemyMob;
+    protected GameObject enemyAdventurer;
+    protected Mobs enemyMobController;
+    protected Adventurers enemyAdventurerController;
+    protected int allyAttack;
     // Start is called before the first frame update
     void Start()
     {
-        allyAttack = allyStats.allyAttack;
-        hireManager = GameObject.Find("HireAllies").GetComponent<HireManager>();
-        FindTarget();
+
     }
 
     // Update is called once per frame
@@ -26,7 +24,7 @@ public class Ally : MonoBehaviour
 
     }
 
-    public void FindTarget()
+    protected virtual void FindTarget()
     {
         enemyMob = GameObject.FindWithTag("EnemyMob");
         enemyAdventurer = GameObject.FindWithTag("EnemyAdventurer");
@@ -34,39 +32,23 @@ public class Ally : MonoBehaviour
         if (enemyMob != null)
         {
             enemyMobController = enemyMob.GetComponent<Mobs>();
-            StartCoroutine("AllyAttackEnemyMob");
+            AttackEnemyMob();
         }
         else if (enemyAdventurer != null)
         {
             enemyAdventurerController = enemyAdventurer.GetComponent<Adventurers>();
-            StartCoroutine("AllyAttackEnemyAdventurer");
+            AttackEnemyAdventurer();
         }
     }
 
-    IEnumerator AllyAttackEnemyMob()
-    {
-        while (enemyMob != null)
-        {
-            allyAnimator.Play("Attack");
-            enemyMobController.enemyHealth -= allyAttack;
-            enemyMobController.UpdateHealthUI();
-            enemyMobController.CheckEnemyDead();
-            yield return new WaitForSeconds(1);
-        }
-        FindTarget();
-    }
+    protected abstract void AttackEnemyMob();
 
-    IEnumerator AllyAttackEnemyAdventurer()
+    protected abstract void AttackEnemyAdventurer();
+
+    IEnumerator AllyAttackCooldown()
     {
-        while (enemyAdventurer != null)
-        {
-            allyAnimator.Play("Attack");
-            enemyAdventurerController.enemyHealth -= allyAttack;
-            enemyAdventurerController.UpdateHealthUI();
-            enemyAdventurerController.CheckEnemyDead();
-            yield return new WaitForSeconds(1);
-        }
-        FindTarget();
+        Debug.Log("Coroutine!");
+        yield return new WaitForSeconds(1);
     }
 
 }

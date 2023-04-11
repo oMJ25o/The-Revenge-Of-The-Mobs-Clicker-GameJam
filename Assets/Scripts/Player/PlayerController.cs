@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator AttackCooldown()
     {
         isAttackCooldown = true;
-        yield return new WaitForSeconds(1 / attackSpeed);
+        yield return new WaitForSeconds(0.3f);
         isAttackCooldown = false;
     }
 
